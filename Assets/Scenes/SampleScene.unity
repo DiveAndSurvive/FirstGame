@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 56446543}
   - component: {fileID: 56446542}
   - component: {fileID: 56446541}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: plaza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 56446540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.014, y: -0.872, z: -0.53}
+  m_LocalPosition: {x: 0.23, y: -0.81, z: -0.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -244,7 +244,7 @@ BuoyancyEffector2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_SurfaceLevel: 2
-  m_Density: 50
+  m_Density: 10
   m_LinearDrag: 5
   m_AngularDrag: 5
   m_FlowAngle: 0
@@ -346,6 +346,7 @@ GameObject:
   - component: {fileID: 394790258}
   - component: {fileID: 394790257}
   - component: {fileID: 394790261}
+  - component: {fileID: 394790262}
   m_Layer: 0
   m_Name: czuowiek
   m_TagString: Untagged
@@ -468,12 +469,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81caabd24370f5418ff15ca57a31087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 100
-  jumpSpeed: 10
-  jumpVel: 0
-  jumpDecaySpeed: 5
-  gravity: 10
-  rig: {fileID: 394790258}
+  maxSpeed: 2
+  jumpForce: 100
+  isGrounded: 0
+  isFacingRight: 1
+  canMoveWhileJumping: 1
+  groundCheck: {fileID: 394790260}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  checkRadius: 0.3
+--- !u!114 &394790262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 394790256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd3a34fbbf4f32f4c8486a890209f139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +551,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -558,7 +574,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.809, y: 0.028, z: -20.9}
+  m_LocalPosition: {x: 0.809, y: 0.028, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
