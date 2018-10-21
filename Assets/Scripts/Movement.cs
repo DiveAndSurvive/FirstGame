@@ -38,7 +38,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-
+    public static Movement instance;
     public float maxSpeed;
     public float jumpForce;
     public bool isGrounded;
@@ -49,6 +49,10 @@ public class Movement : MonoBehaviour
     public float checkRadius = 0.2f;
     private Rigidbody2D rb2d;
     private Animator anim;
+
+    void Start () {
+        instance = this;
+    }
 
     void Awake()
     {
