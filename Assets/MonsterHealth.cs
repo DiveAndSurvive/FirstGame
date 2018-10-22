@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterHealth : MonoBehaviour {
-
-    private float maxHealth;
+    
 	// Use this for initialization
 	void Start () {
-        maxHealth = HealthBar.instance.GetComponent<Transform>().localScale.x;
+
 	}
 	
 	// Update is called once per frame
