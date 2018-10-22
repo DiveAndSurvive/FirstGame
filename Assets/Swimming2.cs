@@ -6,9 +6,12 @@ public class Swimming2 : MonoBehaviour {
 
     public bool isGrounded = false;
     private float startSpeed = 2;
+    private float startOxygenX;
+    private float newPositionX;
 
     // Use this for initialization
     void Start () {
+        startOxygenX = OxygenBar.instance.newScaleX;
     }
 	
 	// Update is called once per frame
@@ -22,6 +25,16 @@ public class Swimming2 : MonoBehaviour {
         {
             float move = Input.GetAxis("Vertical");
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, move * Movement.instance.maxSpeed);
+        }
+        if (isGrounded && OxygenBar.instance.GetComponent<Transform>().localScale.x <= startOxygenX && OxygenBar.instance.GetComponent<Transform>().localScale.x >= 0)
+        {
+            OxygenBar.instance.GetComponent<Transform>().localScale = new Vector3(OxygenBar.instance.GetComponent<Transform>().localScale.x - 0.0004F, OxygenBar.instance.GetComponent<Transform>().localScale.y, OxygenBar.instance.GetComponent<Transform>().localScale.z);
+            //OxygenBar.instance.GetComponent<Transform>().position = new Vector3(Movement.instance.GetComponent<Transform>().position.x, OxygenBar.instance.GetComponent<Transform>().position.y, OxygenBar.instance.GetComponent<Transform>().position.z);
+            //OxygenBar.instance.GetComponent<Transform>().position = new Vector3(OxygenBar.instance.GetComponent<Transform>().position.x - ((//OxygenBar.instance.GetComponent<BoxCollider2D>().bounds.size.x * 2 / 3) / 0.0012F), OxygenBar.instance.GetComponent<Transform>().position.y, OxygenBar.instance.GetComponent<Transform>().position.z);
+        }
+        else if(!isGrounded && OxygenBar.instance.GetComponent<Transform>().localScale.x < startOxygenX)
+        {
+            OxygenBar.instance.GetComponent<Transform>().localScale = new Vector3(OxygenBar.instance.GetComponent<Transform>().localScale.x + 0.0004F, OxygenBar.instance.GetComponent<Transform>().localScale.y, OxygenBar.instance.GetComponent<Transform>().localScale.z);
         }
     }
 
