@@ -26,7 +26,7 @@ public class CreateObjects : MonoBehaviour
         var y_pos = GetComponent<BoxCollider2D>().transform.position.y;
         for (int i = 0; i < objectsCount; ++i)
         {
-            Vector3 pos = new Vector3(x_pos + Random.value * x_size, y_pos + Random.value * y_size, -5);
+            Vector3 pos = new Vector3((x_pos - x_size/2) + Random.value * x_size, (y_pos - y_size/2) + Random.value * y_size, -5);
             Instantiate(whichObject, pos, whichObject.transform.rotation);
         }
     }
