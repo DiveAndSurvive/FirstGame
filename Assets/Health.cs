@@ -15,7 +15,7 @@ public class Health : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GetComponent<Transform>().position = new Vector3(Movement.instance.GetComponent<Transform>().position.x - 7, Movement.instance.GetComponent<Transform>().position.y + 3.25F, Movement.instance.GetComponent<Transform>().position.z);
+        GetComponent<Transform>().position = new Vector3(Movement.instance.GetComponent<Transform>().position.x - 4, Movement.instance.GetComponent<Transform>().position.y + 3.25F, Movement.instance.GetComponent<Transform>().position.z);
         GetComponent<Transform>().localScale = new Vector3(newScaleX, newScaleY, GetComponent<Transform>().localScale.z);
 	}
 }
